@@ -1,0 +1,29 @@
+services:
+  php-fpm:
+    build:
+      context: ./docker/php-fpm
+    volumes:
+      - ".:/var/www:cached"
+    expose:
+      - "9000"
+    depends_on:
+      - mysql
+  nginx:
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ".:/var/www:cached"
+    depends_on:
+      - php-fpm
+    ports:
+      - "80:80"
+      - "443:443"
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: edumaster
+      MYSQL_USER: edumaster
+      MYSQL_PASSWORD: edumaster
+    ports:
+      - "3306:3306"
