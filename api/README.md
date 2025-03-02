@@ -14,6 +14,11 @@ cp .env.example .env
 docker-compose up -d
 ```
 
+### Install composer packages
+```bash
+docker-compose run --rm php-fpm composer install
+```
+
 ### Generate app key
 ```bash
 docker-compose run --rm php-fpm  php artisan key:generate

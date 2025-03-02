@@ -51,6 +51,7 @@ class WorksheetControllerTest extends TestCase
             'name' => 'Fake name',
             'questions' => [
                 ['id' => 'fake', 'word' => 'fake', 'definition' => 'fake'],
+                ['id' => 'fake2', 'word' => 'fake2', 'definition' => 'fake2'],
             ]
         ]);
 
